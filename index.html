@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Vistula Workforce Global</title>
+<link rel="stylesheet" href="css/app.css"/>
+
+<script src="js/theme.js"></script>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">Vistula Workforce Global</a>
+  <button class="theme" type="button" onclick="toggleTheme()">الوضع</button>
+</header>
+
+<section class="hero">
+  <img src="images/hero-aerial.jpg" alt=""/>
+  <div class="veil"></div>
+  <div class="copy">
+    <p>سفر للعمل</p>
+    <h1>Vistula Workforce Global</h1>
+    <p>خريطة العالم. الدول مجمّعة حسب القارة — اضغط أي دولة.</p>
+  </div>
+</section>
+<section class="wrap">
+  <h2>خريطة العالم</h2>
+  <p class="sub">قرّب وحرّك واضغط الدولة. أو ابحث في القائمة تحت.</p>
+  <div id="map" data-geo="data/world.geojson" data-country-base="country/"></div>
+</section>
+<section class="wrap">
+  <input class="search" id="q" placeholder="ابحث عن دولة..." oninput="filterCards()"/>
+  <h2 class="continent" id="c-أفريقيا">أفريقيا</h2>
+<div class="grid"><a class="card" href="country/angola.html">
+      <img src="images/angola.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أنغولا</strong><span>لواندا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/uganda.html">
+      <img src="images/uganda.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أوغندا</strong><span>كامبالا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/ethiopia.html">
+      <img src="images/ethiopia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إثيوبيا</strong><span>أديس أبابا · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/eritrea.html">
+      <img src="images/eritrea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إريتريا</strong><span>أسمرة · جمهورية</span></div>
+    </a>
+<a class="card" href="country/eswatini.html">
+      <img src="images/eswatini.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إسواتيني</strong><span>مبابان · ملكية مطلقة</span></div>
+    </a>
+<a class="card" href="country/algeria.html">
+      <img src="images/dz.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الجزائر</strong><span>الجزائر · جمهورية</span></div>
+    </a>
+<a class="card" href="country/cape-verde.html">
+      <img src="images/cape-verde.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الرأس الأخضر</strong><span>برايا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/senegal.html">
+      <img src="images/senegal.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>السنغال</strong><span>داكار · جمهورية</span></div>
+    </a>
+<a class="card" href="country/sudan.html">
+      <img src="images/sd.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>السودان</strong><span>الخرطوم · جمهورية</span></div>
+    </a>
+<a class="card" href="country/western-sahara.html">
+      <img src="images/western-sahara.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الصحراء الغربية</strong><span>العيون · إقليم متنازع عليه</span></div>
+    </a>
+<a class="card" href="country/somalia.html">
+      <img src="images/so.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الصومال</strong><span>مقديشو · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/gabon.html">
+      <img src="images/gabon.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الغابون</strong><span>ليبرفيل · جمهورية</span></div>
+    </a>
+<a class="card" href="country/cameroon.html">
+      <img src="images/cameroon.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الكاميرون</strong><span>ياوندي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/congo.html">
+      <img src="images/congo.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الكونغو</strong><span>برازافيل · جمهورية</span></div>
+    </a>
+<a class="card" href="country/morocco.html">
+      <img src="images/ma.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>المغرب</strong><span>الرباط · مملكة — ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/niger.html">
+      <img src="images/niger.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>النيجر</strong><span>نيامي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/benin.html">
+      <img src="images/benin.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بنين</strong><span>بورتو نوفو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/botswana.html">
+      <img src="images/botswana.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بوتسوانا</strong><span>غابورون · جمهورية</span></div>
+    </a>
+<a class="card" href="country/burkina-faso.html">
+      <img src="images/burkina-faso.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بوركينا فاسو</strong><span>واغادوغو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/burundi.html">
+      <img src="images/burundi.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بوروندي</strong><span>جيمينا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/chad.html">
+      <img src="images/chad.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تشاد</strong><span>نجامينا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/tanzania.html">
+      <img src="images/tanzania.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تنزانيا</strong><span>دودوما · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/togo.html">
+      <img src="images/togo.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>توغو</strong><span>لومي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/tunisia.html">
+      <img src="images/tn.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تونس</strong><span>تونس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/comoros.html">
+      <img src="images/km.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جزر القمر</strong><span>موروني · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/central-african-republic.html">
+      <img src="images/central-african-republic.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جمهورية أفريقيا الوسطى</strong><span>بانغي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/drc.html">
+      <img src="images/drc.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جمهورية الكونغو الديمقراطية</strong><span>كينشاسا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/south-africa.html">
+      <img src="images/south-africa.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جنوب أفريقيا</strong><span>بريتوريا / كيب تاون / بلومفونتين · جمهورية</span></div>
+    </a>
+<a class="card" href="country/south-sudan.html">
+      <img src="images/south-sudan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جنوب السودان</strong><span>جوبا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/djibouti.html">
+      <img src="images/dj.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جيبوتي</strong><span>جيبوتي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/rwanda.html">
+      <img src="images/rwanda.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>رواندا</strong><span>كيغالي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/zambia.html">
+      <img src="images/zambia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>زامبيا</strong><span>لوساكا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/zimbabwe.html">
+      <img src="images/zimbabwe.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>زيمبابوي</strong><span>هراري · جمهورية</span></div>
+    </a>
+<a class="card" href="country/cote-divoire.html">
+      <img src="images/cote-divoire.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ساحل العاج</strong><span>ياموسوكرو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/sierra-leone.html">
+      <img src="images/sierra-leone.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سيراليون</strong><span>فريتاون · جمهورية</span></div>
+    </a>
+<a class="card" href="country/gambia.html">
+      <img src="images/gambia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غامبيا</strong><span>بانجول · جمهورية</span></div>
+    </a>
+<a class="card" href="country/ghana.html">
+      <img src="images/ghana.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غانا</strong><span>أكرا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/guinea.html">
+      <img src="images/guinea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غينيا</strong><span>كوناكري · جمهورية</span></div>
+    </a>
+<a class="card" href="country/equatorial-guinea.html">
+      <img src="images/equatorial-guinea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غينيا الاستوائية</strong><span>مالابو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/guinea-bissau.html">
+      <img src="images/guinea-bissau.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غينيا بيساو</strong><span>بيساو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/kenya.html">
+      <img src="images/kenya.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كينيا</strong><span>نيروبي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/libya.html">
+      <img src="images/ly.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ليبيا</strong><span>طرابلس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/liberia.html">
+      <img src="images/liberia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ليبيريا</strong><span>مونروفيا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/lesotho.html">
+      <img src="images/lesotho.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ليسوتو</strong><span>ماسيرو · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/mali.html">
+      <img src="images/mali.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مالي</strong><span>باماكو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/madagascar.html">
+      <img src="images/madagascar.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مدغشقر</strong><span>أنتاناناريفو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/egypt.html">
+      <img src="images/eg.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مصر</strong><span>القاهرة · جمهورية</span></div>
+    </a>
+<a class="card" href="country/malawi.html">
+      <img src="images/malawi.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ملاوي</strong><span>ليلونغوي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/mauritania.html">
+      <img src="images/mr.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>موريتانيا</strong><span>نواكشوط · جمهورية</span></div>
+    </a>
+<a class="card" href="country/mauritius.html">
+      <img src="images/mauritius.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>موريشيوس</strong><span>بورت لويس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/mozambique.html">
+      <img src="images/mozambique.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>موزمبيق</strong><span>مابوتو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/namibia.html">
+      <img src="images/namibia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ناميبيا</strong><span>ويندهوك · جمهورية</span></div>
+    </a>
+<a class="card" href="country/nigeria.html">
+      <img src="images/nigeria.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>نيجيريا</strong><span>أبوجا · جمهورية اتحادية</span></div>
+    </a></div><h2 class="continent" id="c-آسيا">آسيا</h2>
+<div class="grid"><a class="card" href="country/azerbaijan.html">
+      <img src="images/azerbaijan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أذربيجان</strong><span>باكو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/armenia.html">
+      <img src="images/armenia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أرمينيا</strong><span>يريفان · جمهورية</span></div>
+    </a>
+<a class="card" href="country/afghanistan.html">
+      <img src="images/afghanistan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أفغانستان</strong><span>كابول · جمهورية</span></div>
+    </a>
+<a class="card" href="country/uzbekistan.html">
+      <img src="images/uzbekistan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أوزبكستان</strong><span>طشقند · جمهورية</span></div>
+    </a>
+<a class="card" href="country/israel.html">
+      <img src="images/israel.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إسرائيل</strong><span>القدس (معلنة) / تل أبيب (عاصمة اقتصادية) · جمهورية</span></div>
+    </a>
+<a class="card" href="country/indonesia.html">
+      <img src="images/indonesia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إندونيسيا</strong><span>جاكرتا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/iran.html">
+      <img src="images/iran.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إيران</strong><span>طهران · جمهورية إسلامية</span></div>
+    </a>
+<a class="card" href="country/jordan.html">
+      <img src="images/jo.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الأردن</strong><span>عمّان · مملكة — ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/uae.html">
+      <img src="images/ae.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الإمارات</strong><span>أبوظبي · اتحاد إمارات — ملكي اتحادي</span></div>
+    </a>
+<a class="card" href="country/bahrain.html">
+      <img src="images/bh.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>البحرين</strong><span>المنامة · مملكة — ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/saudi-arabia.html">
+      <img src="images/sa.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>السعودية</strong><span>الرياض · مملكة — ملكية مطلقة</span></div>
+    </a>
+<a class="card" href="country/china.html">
+      <img src="images/china.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الصين</strong><span>بكين · جمهورية</span></div>
+    </a>
+<a class="card" href="country/iraq.html">
+      <img src="images/iq.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>العراق</strong><span>بغداد · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/philippines.html">
+      <img src="images/philippines.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الفلبين</strong><span>مانيلا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/kuwait.html">
+      <img src="images/kw.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الكويت</strong><span>الكويت · إمارة — ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/maldives.html">
+      <img src="images/maldives.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>المالديف</strong><span>ماليه · جمهورية</span></div>
+    </a>
+<a class="card" href="country/india.html">
+      <img src="images/india.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الهند</strong><span>نيودلهي · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/japan.html">
+      <img src="images/japan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>اليابان</strong><span>طوكيو · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/yemen.html">
+      <img src="images/ye.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>اليمن</strong><span>صنعاء · جمهورية</span></div>
+    </a>
+<a class="card" href="country/pakistan.html">
+      <img src="images/pakistan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>باكستان</strong><span>إسلام آباد · جمهورية إسلامية</span></div>
+    </a>
+<a class="card" href="country/brunei.html">
+      <img src="images/brunei.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بروناي</strong><span>بندر سري بكاوان · سلطنة — ملكية مطلقة</span></div>
+    </a>
+<a class="card" href="country/bangladesh.html">
+      <img src="images/bangladesh.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بنغلاديش</strong><span>دكا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/bhutan.html">
+      <img src="images/bhutan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بوتان</strong><span>تيمفو · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/thailand.html">
+      <img src="images/thailand.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تايلاند</strong><span>بانكوك · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/taiwan.html">
+      <img src="images/taiwan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تايوان</strong><span>تايبيه · جمهورية</span></div>
+    </a>
+<a class="card" href="country/turkmenistan.html">
+      <img src="images/turkmenistan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تركمانستان</strong><span>عشق آباد · جمهورية</span></div>
+    </a>
+<a class="card" href="country/turkey.html">
+      <img src="images/turkey.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تركيا</strong><span>أنقرة · جمهورية</span></div>
+    </a>
+<a class="card" href="country/timor-leste.html">
+      <img src="images/timor-leste.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تيمور الشرقية</strong><span>ديلي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/georgia.html">
+      <img src="images/georgia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جورجيا</strong><span>تبليسي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/sri-lanka.html">
+      <img src="images/sri-lanka.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سريلانكا</strong><span>سري جاياواردنابورا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/singapore.html">
+      <img src="images/singapore.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سنغافورة</strong><span>سنغافورة · جمهورية</span></div>
+    </a>
+<a class="card" href="country/syria.html">
+      <img src="images/sy.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سوريا</strong><span>دمشق · جمهورية</span></div>
+    </a>
+<a class="card" href="country/tajikistan.html">
+      <img src="images/tajikistan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>طاجيكستان</strong><span>دوشانبي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/oman.html">
+      <img src="images/om.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>عُمان</strong><span>مسقط · سلطنة — ملكية مطلقة</span></div>
+    </a>
+<a class="card" href="country/palestine.html">
+      <img src="images/ps.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فلسطين</strong><span>القدس (معلنة) / رام الله (إدارية) · دولة — جمهورية</span></div>
+    </a>
+<a class="card" href="country/vietnam.html">
+      <img src="images/vietnam.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فيتنام</strong><span>هانوي · جمهورية اشتراكية</span></div>
+    </a>
+<a class="card" href="country/qatar.html">
+      <img src="images/qa.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>قطر</strong><span>الدوحة · إمارة — ملكية مطلقة</span></div>
+    </a>
+<a class="card" href="country/kyrgyzstan.html">
+      <img src="images/kyrgyzstan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>قيرغيزستان</strong><span>بيشكك · جمهورية</span></div>
+    </a>
+<a class="card" href="country/kazakhstan.html">
+      <img src="images/kazakhstan.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كازاخستان</strong><span>أستانا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/cambodia.html">
+      <img src="images/cambodia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كمبوديا</strong><span>بنوم بنه · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/south-korea.html">
+      <img src="images/south-korea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كوريا الجنوبية</strong><span>سيول · جمهورية</span></div>
+    </a>
+<a class="card" href="country/north-korea.html">
+      <img src="images/north-korea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كوريا الشمالية</strong><span>بيونغ يانغ · جمهورية</span></div>
+    </a>
+<a class="card" href="country/laos.html">
+      <img src="images/laos.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>لاوس</strong><span>فيينتيان · جمهورية</span></div>
+    </a>
+<a class="card" href="country/lebanon.html">
+      <img src="images/lb.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>لبنان</strong><span>بيروت · جمهورية</span></div>
+    </a>
+<a class="card" href="country/malaysia.html">
+      <img src="images/malaysia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ماليزيا</strong><span>كوالالمبور · ملكية دستورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/mongolia.html">
+      <img src="images/mongolia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>منغوليا</strong><span>أولان باتور · جمهورية</span></div>
+    </a>
+<a class="card" href="country/myanmar.html">
+      <img src="images/myanmar.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ميانمار</strong><span>نايبيداو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/nepal.html">
+      <img src="images/nepal.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>نيبال</strong><span>كاتماندو · جمهورية</span></div>
+    </a></div><h2 class="continent" id="c-أوروبا">أوروبا</h2>
+<div class="grid"><a class="card" href="country/iceland.html">
+      <img src="images/iceland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>آيسلندا</strong><span>ريكيافيك · جمهورية</span></div>
+    </a>
+<a class="card" href="country/albania.html">
+      <img src="images/albania.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ألبانيا</strong><span>تيرانا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/germany.html">
+      <img src="images/germany.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ألمانيا</strong><span>برلين · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/ukraine.html">
+      <img src="images/ukraine.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أوكرانيا</strong><span>كييف · جمهورية</span></div>
+    </a>
+<a class="card" href="country/ireland.html">
+      <img src="images/ireland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أيرلندا</strong><span>دبلن · جمهورية</span></div>
+    </a>
+<a class="card" href="country/spain.html">
+      <img src="images/spain.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إسبانيا</strong><span>مدريد · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/estonia.html">
+      <img src="images/estonia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إستونيا</strong><span>تالين · جمهورية</span></div>
+    </a>
+<a class="card" href="country/italy.html">
+      <img src="images/it.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>إيطاليا</strong><span>روما · جمهورية</span></div>
+    </a>
+<a class="card" href="country/portugal.html">
+      <img src="images/portugal.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>البرتغال</strong><span>لشبونة · جمهورية</span></div>
+    </a>
+<a class="card" href="country/bosnia.html">
+      <img src="images/bosnia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>البوسنة والهرسك</strong><span>سراييفو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/czechia.html">
+      <img src="images/czechia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>التشيك</strong><span>براغ · جمهورية</span></div>
+    </a>
+<a class="card" href="country/montenegro.html">
+      <img src="images/montenegro.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الجبل الأسود</strong><span>بودغوريتسا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/denmark.html">
+      <img src="images/denmark.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الدنمارك</strong><span>كوبنهاغن · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/sweden.html">
+      <img src="images/sweden.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>السويد</strong><span>ستوكهولم · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/hungary.html">
+      <img src="images/hungary.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>المجر</strong><span>بودابست · جمهورية</span></div>
+    </a>
+<a class="card" href="country/united-kingdom.html">
+      <img src="images/united-kingdom.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>المملكة المتحدة</strong><span>لندن · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/norway.html">
+      <img src="images/norway.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>النرويج</strong><span>أوسلو · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/austria.html">
+      <img src="images/austria.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>النمسا</strong><span>فيينا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/greece.html">
+      <img src="images/greece.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>اليونان</strong><span>أثينا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/belgium.html">
+      <img src="images/belgium.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بلجيكا</strong><span>بروكسل · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/bulgaria.html">
+      <img src="images/bulgaria.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بلغاريا</strong><span>صوفيا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/poland.html">
+      <img src="images/poland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بولندا</strong><span>وارسو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/belarus.html">
+      <img src="images/belarus.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بيلاروس</strong><span>مينسك · جمهورية</span></div>
+    </a>
+<a class="card" href="country/russia.html">
+      <img src="images/russia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>روسيا</strong><span>موسكو · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/romania.html">
+      <img src="images/ro.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>رومانيا</strong><span>بوخارست · جمهورية</span></div>
+    </a>
+<a class="card" href="country/slovakia.html">
+      <img src="images/sk.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سلوفاكيا</strong><span>براتيسلافا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/slovenia.html">
+      <img src="images/slovenia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سلوفينيا</strong><span>ليوبليانا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/switzerland.html">
+      <img src="images/switzerland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سويسرا</strong><span>برن · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/serbia.html">
+      <img src="images/serbia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>صربيا</strong><span>بلغراد · جمهورية</span></div>
+    </a>
+<a class="card" href="country/france.html">
+      <img src="images/france.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فرنسا</strong><span>باريس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/finland.html">
+      <img src="images/finland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فنلندا</strong><span>هلسنكي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/cyprus.html">
+      <img src="images/cyprus.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>قبرص</strong><span>نيقوسيا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/croatia.html">
+      <img src="images/croatia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كرواتيا</strong><span>زغرب · جمهورية</span></div>
+    </a>
+<a class="card" href="country/kosovo.html">
+      <img src="images/kosovo.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كوسوفو</strong><span>بريشتينا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/latvia.html">
+      <img src="images/latvia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>لاتفيا</strong><span>ريغا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/luxembourg.html">
+      <img src="images/luxembourg.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>لوكسمبورغ</strong><span>لوكسمبورغ · دوقية — ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/lithuania.html">
+      <img src="images/lithuania.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ليتوانيا</strong><span>فيльنيوس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/malta.html">
+      <img src="images/malta.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مالطا</strong><span>فاليتا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/north-macedonia.html">
+      <img src="images/north-macedonia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مقدونيا الشمالية</strong><span>سكوبي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/moldova.html">
+      <img src="images/moldova.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>مولدوفا</strong><span>كيشيناو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/netherlands.html">
+      <img src="images/netherlands.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>هولندا</strong><span>أمستردام · ملكية دستورية</span></div>
+    </a></div><h2 class="continent" id="c-الأمريكتان">الأمريكتان</h2>
+<div class="grid"><a class="card" href="country/argentina.html">
+      <img src="images/argentina.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الأرجنتين</strong><span>بوينس آيرس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/uruguay.html">
+      <img src="images/uruguay.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الأوروغواي</strong><span>مونتفيديو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/ecuador.html">
+      <img src="images/ecuador.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الإكوادور</strong><span>كيتو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/bahamas.html">
+      <img src="images/bahamas.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الباهاما</strong><span>ناساو · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/brazil.html">
+      <img src="images/brazil.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>البرازيل</strong><span>برازيليا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/el-salvador.html">
+      <img src="images/el-salvador.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>السلفادور</strong><span>سان سلفادور · جمهورية</span></div>
+    </a>
+<a class="card" href="country/mexico.html">
+      <img src="images/mexico.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>المكسيك</strong><span>مدينة المكسيك · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/united-states.html">
+      <img src="images/united-states.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>الولايات المتحدة</strong><span>واشنطن · جمهورية اتحادية</span></div>
+    </a>
+<a class="card" href="country/paraguay.html">
+      <img src="images/paraguay.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>باراغواي</strong><span>أسونسيون · جمهورية</span></div>
+    </a>
+<a class="card" href="country/belize.html">
+      <img src="images/belize.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بليز</strong><span>بلموبان · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/panama.html">
+      <img src="images/panama.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بنما</strong><span>مدينة بنما · جمهورية</span></div>
+    </a>
+<a class="card" href="country/bolivia.html">
+      <img src="images/bolivia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بوليفيا</strong><span>سوكري / لاباز · جمهورية</span></div>
+    </a>
+<a class="card" href="country/peru.html">
+      <img src="images/peru.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بيرو</strong><span>ليما · جمهورية</span></div>
+    </a>
+<a class="card" href="country/trinidad.html">
+      <img src="images/trinidad.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>ترينيداد وتوباغو</strong><span>بورت أوف سبين · جمهورية</span></div>
+    </a>
+<a class="card" href="country/chile.html">
+      <img src="images/chile.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>تشيلي</strong><span>سانتياغو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/jamaica.html">
+      <img src="images/jamaica.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جامايكا</strong><span>كينغستون · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/dominican-republic.html">
+      <img src="images/dominican-republic.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جمهورية الدومينيكان</strong><span>سانتو دومينغو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/suriname.html">
+      <img src="images/suriname.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>سورينام</strong><span>باراماريبو · جمهورية</span></div>
+    </a>
+<a class="card" href="country/greenland.html">
+      <img src="images/greenland.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غرينلاند</strong><span>نوك · حكم ذاتي</span></div>
+    </a>
+<a class="card" href="country/guatemala.html">
+      <img src="images/guatemala.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غواتيمالا</strong><span>غواتيمالا سيتي · جمهورية</span></div>
+    </a>
+<a class="card" href="country/guyana.html">
+      <img src="images/guyana.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>غيانا</strong><span>جورج تاون · جمهورية</span></div>
+    </a>
+<a class="card" href="country/venezuela.html">
+      <img src="images/venezuela.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فنزويلا</strong><span>كاراكاس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/canada.html">
+      <img src="images/canada.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كندا</strong><span>أوتاوا · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/cuba.html">
+      <img src="images/cuba.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كوبا</strong><span>هافانا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/costa-rica.html">
+      <img src="images/costa-rica.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كوستاريكا</strong><span>سان خوسيه · جمهورية</span></div>
+    </a>
+<a class="card" href="country/colombia.html">
+      <img src="images/colombia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>كولومبيا</strong><span>بوغوتا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/nicaragua.html">
+      <img src="images/nicaragua.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>نيكاراغوا</strong><span>ماناغوا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/haiti.html">
+      <img src="images/haiti.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>هايتي</strong><span>بورت أو برنس · جمهورية</span></div>
+    </a>
+<a class="card" href="country/honduras.html">
+      <img src="images/honduras.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>هندوراس</strong><span>تيغوسيغالبا · جمهورية</span></div>
+    </a></div><h2 class="continent" id="c-أوقيانوسيا">أوقيانوسيا</h2>
+<div class="grid"><a class="card" href="country/australia.html">
+      <img src="images/australia.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>أستراليا</strong><span>كانبرا · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/papua-new-guinea.html">
+      <img src="images/papua-new-guinea.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>بابوا غينيا الجديدة</strong><span>بورت مورسبي · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/solomon-islands.html">
+      <img src="images/solomon-islands.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>جزر سليمان</strong><span>هونيارا · ملكية دستورية</span></div>
+    </a>
+<a class="card" href="country/vanuatu.html">
+      <img src="images/vanuatu.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فانواتو</strong><span>بورت فيلا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/fiji.html">
+      <img src="images/fiji.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>فيجي</strong><span>سوفا · جمهورية</span></div>
+    </a>
+<a class="card" href="country/new-zealand.html">
+      <img src="images/new-zealand.jpg" alt="" loading="lazy"/>
+      <div class="meta"><strong>نيوزيلندا</strong><span>ويلينغتون · ملكية دستورية</span></div>
+    </a></div>
+</section>
+<link rel="stylesheet" href="lib/leaflet.css"/>
+<script src="data/countries.js"></script>
+<script src="lib/leaflet.js"></script>
+<script src="js/map.js"></script>
+<script>
+function filterCards(){
+  const q=(document.getElementById('q').value||'').trim();
+  document.querySelectorAll('.card').forEach(el=>{
+    el.style.display = !q || el.textContent.includes(q) ? '' : 'none';
+  });
+}
+</script>
+
+<footer>Vistula Workforce Global</footer>
+</body>
+</html>
