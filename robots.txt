@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yhany2884-afk.github.io/vistula-workforce-global/sitemap.xml
