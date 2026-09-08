@@ -18,9 +18,10 @@
   if (!mapEl || !window.L) return;
   mapEl.style.direction = 'ltr';
   const map = L.map(mapEl, {worldCopyJump:true, minZoom:1, maxZoom:8}).setView([18,20], 2);
-  const geoPath = mapEl.getAttribute('data-geo') || 'data/world.geojson';
   const countryBase = mapEl.getAttribute('data-country-base') || 'country/';
-  fetch(geoPath).then(r=>r.json()).then(geo=>{
+  const geo = window.WORLD_GEO;
+  if (!geo) return;
+  {
     L.geoJSON(geo, {
       filter: f => !SKIP.has(String(f.id??'').padStart(3,'0')),
       style: f => {
@@ -38,5 +39,5 @@
       }
     }).addTo(map);
     setTimeout(()=>map.invalidateSize(), 200);
-  });
+  }
 })();
